@@ -1,21 +1,39 @@
 package ruslan.zhezlo.demo.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.List;
+
+
+@NoArgsConstructor
+@Getter
+@Setter
 
 @Entity
 public class Car {
 
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private Long price;
     private Double volume;
     private boolean abs;
 
-    public Car() {
-    }
+    @OneToOne
+    private Engine engine;
+
+    @ManyToOne
+    private Country country;
+
+    @ManyToMany (mappedBy = "cars")
+    private List<User> users;
+
+
 
     public Car(Long id, String name, Long price, Double volume, boolean abs) {
         this.id = id;

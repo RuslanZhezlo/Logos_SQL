@@ -15,11 +15,11 @@ public class DomoApplication {
 
         EntityManager em = factory.createEntityManager();
 
-      Car car = new Car(5L, "Audi a8", 2000L, 3.0, true);
-      em.getTransaction().begin();
-      em.persist(car);
-
-      em.getTransaction().commit();
+//      Car car = new Car(5L, "Audi a8", 2000L, 3.0, true);
+//      em.getTransaction().begin();
+//      em.persist(car);
+//
+//      em.getTransaction().commit();
 
         em.close();
         factory.close();
